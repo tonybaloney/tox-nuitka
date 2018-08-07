@@ -1,8 +1,5 @@
 import sys
-import os
-import tox
 from tox import hookimpl
-from tox.config import Config
 
 
 @hookimpl
@@ -11,7 +8,6 @@ def tox_testenv_create(venv, action):
     if not conf.nuitka:
         return
 
-    config_interpreter = venv.getsupportedinterpreter()
     args = [sys.executable, "-m", "pip", "install", "nuitka"]
 
     venv.session.make_emptydir(venv.path)
