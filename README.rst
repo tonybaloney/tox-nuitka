@@ -20,6 +20,8 @@ tox-nuitka
 
 A tox plugin to replace the default use of the CPython compiler with nuitka.
 
+This plugin works by injecting Nuitka as a pip requirement to all test environments and then adding the Nuitka
+compile as a pre-test stage.
 
 Installation
 ------------
@@ -42,17 +44,31 @@ Each of the commands in your testenv configuration will be compiled by nuitka to
 Example tox.ini
 ---------------
 
-This simple example will test against Python 2.7 and 3.6 using pytest to execute the tests.
+This simple example will run pytest against your package but compile myapp/main.py using Nuitka.
 
 .. code-block:: 
 
         [tox]
-        envlist = py27, py36
+        envlist = py27, py36, py37
 
         [testenv]
-        deps = 
-        pytest
-        pytest-mock
+        nuitka = myapp/main.py
+        deps = pytest
         commands = python -m pytest test/
 
+Additional Nuitka configuration is available within the test environment settings.
 
+Currently, the --module and --recurse-all flags are available like this:
+
+.. code-block:: 
+
+        nuitka_module = true
+        nuitka_recurse_all = true
+
+Multiple compile targets can be provided
+
+.. code-block:: 
+
+        nuitka = 
+                myapp/target1.py
+                myapp/target2.py
