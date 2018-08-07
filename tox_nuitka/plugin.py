@@ -37,9 +37,9 @@ def tox_runtest_pre(venv):
         # Compile stage
         args = [sys.executable, "-m", "nuitka"]
         if conf.nuitka_module:
-            args.append('--module')
+            args.append("--module")
         if conf.nuitka_recurse_all:
-            args.append('--recurse-all')
+            args.append("--recurse-all")
         args.append(target)
         venv._pcall(args, venv=venv, action=action, cwd=basepath)
 
