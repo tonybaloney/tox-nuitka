@@ -1,7 +1,5 @@
 from setuptools import setup
 
-import tox_pipenv
-
 with open('README.rst') as readme:
     long_description = readme.read()
 
@@ -9,7 +7,7 @@ with open('HISTORY.rst') as history:
     history_txt = history.read()
 
 
-_version = tox_pipenv.__version__
+_version = '0.0.1'
 
 requirements = [
     'tox>=3.0.0',
@@ -38,10 +36,11 @@ def main():
                      'Topic :: Utilities',
                      'Programming Language :: Python',
                      ],
+        # package_dir={'tox_nuitka': 'src/tox_nuitka'},
         packages=['tox_nuitka', ],
         py_modules=['tox_nuitka'],
         install_requires=[requirements],
-        entry_points={'tox': ['pipenv = tox_nuitka.plugin']},
+        entry_points={'tox': ['nuitka = tox_nuitka.plugin']},
         tests_require=['pytest','pytest-mock']
     )
 
