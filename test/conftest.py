@@ -10,12 +10,16 @@ class MockConfig(object):
     """
     Fake tox config with static values
     """
-    toxinidir = "~/foo"
+    toxinidir = "./tox.ini"
+    toxinipath = py.path.local("./tox.ini")
 
 
 class MockEnvironmentConfig(object):
     sitepackages = False
     envdir = None
+    nuitka = ["test/foo.py"]
+    nuitka_module = False
+    nuitka_recurse_all = False
 
 
 class MockSession(object):
@@ -24,6 +28,9 @@ class MockSession(object):
         self.config.toxinidir = tmpdir
 
     def make_emptydir(self, path):
+        return True
+
+    def newaction(self, *args):
         return True
 
 

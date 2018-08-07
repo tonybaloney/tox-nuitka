@@ -43,6 +43,9 @@ def tox_runtest_pre(venv):
         args.append(target)
         venv._pcall(args, venv=venv, action=action, cwd=basepath)
 
+    # Return non-None to indicate the plugin has completed
+    return True
+
 
 @hookimpl
 def tox_addoption(parser):
