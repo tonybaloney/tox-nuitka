@@ -4,8 +4,8 @@ tox-nuitka
 .. image:: https://img.shields.io/pypi/v/tox-nuitka.svg
         :target: https://pypi.python.org/pypi/tox-nuitka
 
-.. image:: https://img.shields.io/travis/tonybaloney/tox-nuitka.svg
-        :target: https://travis-ci.org/tonybaloney/tox-nuitka
+.. image:: https://travis-ci.com/tonybaloney/tox-nuitka.svg?branch=master
+    :target: https://travis-ci.com/tonybaloney/tox-nuitka
 
 .. image:: https://codecov.io/gh/tonybaloney/tox-nuitka/branch/master/graph/badge.svg
         :target: https://codecov.io/gh/tonybaloney/tox-nuitka
